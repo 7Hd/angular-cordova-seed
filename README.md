@@ -1,6 +1,40 @@
-# NgCdv
+# Angular Cordova Seed
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+## How to Create Seed Project
+
+### Create Project
+
+```sh
+# install cordova and angular-cli
+npm i -g cordova @angular/cli
+
+# use angular-cli create project
+ng new angular-cordova-seed
+
+# use cordova create project
+cordova create cordova-seed
+
+# move all cordova-seed/ files to angular-cordova-seed/
+
+```
+
+### Build Script
+
+```json
+{
+  "scripts": {
+    "build:prob": "ng build -prod --aot --environment=prod --output-path www/ --base-href .",
+    "build:dev": "ng build -dev --sourcemaps --verbose --output-path www/ --base-href .",
+    "run:cordova:android": "cordova run android",
+    "build:cordova:android": "cordova build android",
+    "run:android": "npm run build:prob && npm run run:cordova:android",
+    "build:android": "npm run build:prob && cordova build android",
+    "postinstall": "mkdirp www && cordova prepare"
+  }
+}
+```
 
 ## Development server
 
